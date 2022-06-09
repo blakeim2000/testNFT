@@ -5,7 +5,7 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contr
 contract SampleNFTContract is ERC721 {
     uint256 public tokenCounter;
     uint256 public maxSupply = 3;
-    price = 1 ether; 
+
     //constructor for an ERC721 is a name and symbol
     constructor () public ERC721 ("Next Chapter", "NEXT") {
         tokenCounter = 0;
@@ -20,7 +20,7 @@ contract SampleNFTContract is ERC721 {
     
         require (tokenCounter < maxSupply);
 
-        require(msg.value >= price, "Not enough ETH sent; check price!");
+        require(msg.value == 1 ether, "Not correct ETH sent; check price!");
         
         //get number from token counter
         uint256 newNFTTokenId = tokenCounter;
